@@ -1,15 +1,15 @@
 import streamlit as st
 import pandas as pd
 
-if st.button("Agregar Comida"):
-    if comida and comida not in st.session_state.lista_comidas:
-        st.session_state.lista_comidas.append(comida)
+if 'lista_comidas' not in st.session_state:
+    st.session_state.lista_comidas = []
 
 comida = st.text_input("Ingrese su comida favorita", key = "comida")
 nombre = st.text_input("Ingrese su nombre", key = "nombre")
 
-if 'lista_comidas' not in st.session_state:
-    st.session_state.lista_comidas = []
+if st.button("Agregar Comida"):
+    if comida and comida not in st.session_state.lista_comidas:
+        st.session_state.lista_comidas.append(comida)
 
 dataframe = st.selectbox (
     
