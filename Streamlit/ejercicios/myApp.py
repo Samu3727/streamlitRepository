@@ -23,7 +23,7 @@ dataframe = st.selectbox (
 df = pd.DataFrame ({
     
     'Nombre': [nombre],
-    'Comida Favorita': [st.session_state.comida],
+    'Comida Favorita': [st.sessawion_state.comida],
 })
 
 st.write(df)
