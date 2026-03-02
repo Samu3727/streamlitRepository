@@ -44,7 +44,7 @@ st.markdown(
     .stSelectbox [data-baseweb="select"] [data-testid="stMarkdownContainer"],
     input::placeholder,
     textarea::placeholder {
-        color: #666 !important;
+        color: #d9d7d7 !important;
     }
 
     /* Texto seleccionado dentro del selectbox */
@@ -178,13 +178,13 @@ html_content = f"""
         border-bottom: 3px solid transparent;
         cursor: pointer;
         transition: all 0.3s;
-        color: #000;
+        color: #f2f2f2;
         background: none;
         border: none;
     }}
     
     .tab-button.active {{
-        color: #000;
+        color: #f2f2f2;
         border-bottom-color: #c00;
     }}
     
@@ -197,7 +197,7 @@ html_content = f"""
         position: absolute;
         top: 42px;
         left: 0;
-        background: #1a1a1a;
+        background: #ffff;
         border: 1px solid #444;
         border-radius: 6px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -211,7 +211,7 @@ html_content = f"""
     }}
     
     .dropdown-content a {{
-        color: #fff;
+        color: #000;
         padding: 10px 16px;
         text-decoration: none;
         display: block;
@@ -219,7 +219,7 @@ html_content = f"""
     }}
     
     .dropdown-content a:hover {{
-        background: #333;
+        background: #fad9d9;
     }}
     
     </style>
@@ -228,7 +228,7 @@ html_content = f"""
         <div class="tab-dropdown">
             <div class="tab-button {clase_req}">Requerimientos &#9662;</div>
             <div class="dropdown-content">
-                <a href="?tab=Requerimientos">Contexto</a>
+                <a href="../ejercicios/contexto.py">Contexto</a>
                 <a href="?tab=Requerimientos">Historia de usuario</a>
             </div>
         </div>
