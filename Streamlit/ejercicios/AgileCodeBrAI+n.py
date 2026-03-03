@@ -252,79 +252,14 @@ html_content = f"""
 st.markdown(html_content, unsafe_allow_html=True)
 
 if tab_activa == "Requerimientos":
-    st.header("📋 Formulario Historia de Usuario")
-    st.write("💡 Ingrese los requerimientos de la historia de usuario. ⚠️ Recuerda seleecionar primero el tablero para poder seleccionar la épica a la que pertenece.")
-    epica = st.selectbox("Épicas", ["Backend", "Frontend", "CodeBrAI+n"], index=None, placeholder="Épicas")
-    actualizar_historia = st.checkbox("¿Necesita actulaizar alguna Historia de usuario?")
+    st.header("🌐 Formulario Contexto")
+    st.write("💡 Ingrese el contexto del proyecto")
+    st.text_area("", max_chars=50000)
+
+    if st.button("Enviar", key="Tab1"):
+        st.success("Éxito, Contexto guardado correctamente")
     
-    historia_usuario = None
-    if actualizar_historia:
-        historia_usuario = st.selectbox("Historia de Usuario: ", ["Inicio de sesión", "Registro", "Proveedores"], index=None, placeholder="Seleccione o ingrese la Epica.")
-        
-    informacion_adicional = st.text_area("Información Adicional:", max_chars=50000)
-    
-    char_count = len(informacion_adicional) if informacion_adicional else 0
-    st.markdown(
-        f'<p style="text-align:right; color: {"red" if char_count >= 50000 else "#666"}; font-size:12px;">{char_count:,} / 50,000</p>',
-        unsafe_allow_html=True
-    )
 
-    # Determinar si todos los campos están llenos
-    campos_ok = bool(epica) and bool(informacion_adicional)
-    if actualizar_historia:
-        campos_ok = campos_ok and bool(historia_usuario)
-
-    if campos_ok:
-        btn_style = """
-        <style>
-        div[data-testid="stButton"] > button {
-            display: block;
-            margin: 20px auto 0 auto;
-            background-color: red !important;
-            border: none !important;
-            padding: 10px 40px;
-            width: 250px;
-            font-size: 16px;
-            border-radius: 50px;
-            cursor: pointer;
-        }
-        div[data-testid="stButton"] > button p,
-        div[data-testid="stButton"] > button span,
-        div[data-testid="stButton"] > button * {
-            color: white !important;
-        }
-        </style>
-        """
-    else:
-        btn_style = """
-        <style>
-        div[data-testid="stButton"] > button {
-            display: block;
-            margin: 20px auto 0 auto;
-            background-color: #ccc !important;
-            border: none !important;
-            padding: 10px 40px;
-            width: 250px;
-            font-size: 16px;
-            border-radius: 50px;
-            cursor: not-allowed;
-        }
-        div[data-testid="stButton"] > button p,
-        div[data-testid="stButton"] > button span,
-        div[data-testid="stButton"] > button * {
-            color: #888 !important;
-        }
-        </style>
-        """
-    st.markdown(btn_style, unsafe_allow_html=True)
-
-    col1, col2, col3 = st.columns([4, 2, 4])
-    with col2:
-        if st.button("Enviar", key="tab1", disabled=not campos_ok):
-            if actualizar_historia and informacion_adicional:
-                st.success("Historia de usuario con nueva información se ha enviado correctamente.")
-            elif not actualizar_historia:
-                st.success("Historia de Usuario enviada correctamente.")
 
 elif tab_activa == "Casos de Prueba":
     st.header("🧪 Formulario Casos de Prueba")

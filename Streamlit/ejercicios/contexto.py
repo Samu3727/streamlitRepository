@@ -19,7 +19,8 @@ st.markdown (
     unsafe_allow_html=True
 )
 
-st.selectbox("Seleccione de que tablero desea que sea el contexto", ["Hola", "Como estas?", "Bien y tu?"], index=None, placeholdstreer="Tablero.")
 
-st.write("Hola como estas")
+st.title("Formulario Contexto")
+st.write("Ingrese el contexto del proyecto")
 
+st.text_area("")
