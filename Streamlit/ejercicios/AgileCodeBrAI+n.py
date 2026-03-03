@@ -165,51 +165,62 @@ html_content = f"""
         margin: 1rem 0;
         border-bottom: 1px solid #d6d2d2;
     }}
-    
+
     .tab-dropdown {{
         position: relative;
         display: inline-block;
     }}
-    
+
+    /* puente invisible para no perder hover al bajar al menú */
+    .tab-dropdown::after {{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 6px;
+        background: transparent;
+        z-index: 999;
+    }}
+
     .tab-button {{
         padding: 8px 16px;
         font-size: 14px;
         font-weight: 500;
         border-bottom: 3px solid transparent;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: all 0.2s ease;
         color: #f2f2f2;
         background: none;
         border: none;
     }}
-    
+
     .tab-button.active {{
-        color: #f2f2f2;
         border-bottom-color: #c00;
     }}
-    
+
     .tab-button:hover {{
         color: #c00;
     }}
-    
+
     .dropdown-content {{
         display: none;
         position: absolute;
-        top: 42px;
+        top: 42px;   /* como antes */
         left: 0;
-        background: #ffff;
+        background: #fff;
         border: 1px solid #444;
         border-radius: 6px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        min-width: 200px;
+        min-width: 165px;
         z-index: 1000;
         overflow: hidden;
     }}
-    
+
     .tab-dropdown:hover .dropdown-content {{
         display: block;
     }}
-    
+
     .dropdown-content a {{
         color: #000;
         padding: 10px 16px;
@@ -217,11 +228,32 @@ html_content = f"""
         display: block;
         font-size: 14px;
     }}
-    
+
     .dropdown-content a:hover {{
         background: #fad9d9;
     }}
-    
+
+    /* botón enviar centrado + rojo activo */
+    div[data-testid="stButton"] > button {{
+        display: block;
+        margin: 16px auto 0 auto !important;
+        min-width: 220px;
+        border-radius: 8px;
+        border: none !important;
+        font-weight: 600;
+    }}
+
+    div[data-testid="stButton"] > button:enabled {{
+        background-color: #c00 !important;
+        color: #fff !important;
+    }}
+
+    div[data-testid="stButton"] > button:disabled {{
+        background-color: #bdbdbd !important;
+        color: #fff !important;
+        opacity: 1 !important;
+        cursor: not-allowed !important;
+    }}
     </style>
 
     <div class="tab-menu-container">
