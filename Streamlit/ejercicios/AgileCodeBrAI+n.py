@@ -165,6 +165,22 @@ html_content = f"""
         margin: 1rem 0;
         border-bottom: 1px solid #d6d2d2;
     }}
+    
+    .stTextArea textarea {{
+    border: 1px solid #cfcfcf !important;
+    border-radius: 8px !important;
+    background-color: #ffffff !important;
+    color: #111 !important;
+    min-height: 235px !important;
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    }}
+
+    .stTextArea textarea:focus {{
+        border: 1px solid #c00 !important;
+        box-shadow: 0 0 0 2px rgba(204, 0, 0, 0.15) !important;
+        outline: none !important;
+    }}
 
     .tab-dropdown {{
         position: relative;
@@ -202,6 +218,7 @@ html_content = f"""
     .tab-button:hover {{
         color: #c00;
     }}
+    
 
     .dropdown-content {{
         display: none;
