@@ -170,6 +170,22 @@ html_content = f"""
         position: relative;
         display: inline-block;
     }}
+
+    /* Puente invisible para evitar que se esconda el dropdown */
+    .tab-dropdown::after {{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 6px;
+    }}
+    
+    .stTextArea textarea {{
+        border: 1px solid #e3e1e1 !important;
+        border-radius: 4px;
+        min-height: 250px !important;
+    }}
     
     .tab-button {{
         padding: 8px 16px;
@@ -177,8 +193,13 @@ html_content = f"""
         font-weight: 500;
         border-bottom: 3px solid transparent;
         cursor: pointer;
+<<<<<<< refs/remotes/origin/Frontend-Streamlit:Streamlit/ejercicios/newMockup.py
         transition: all 0.3s;
         color: #000;
+=======
+        transition: all 0.2s ease;
+        color: #f2f2f2;
+>>>>>>> local:Streamlit/ejercicios/AgileCodeBrAI+n.py
         background: none;
         border: none;
     }}
@@ -195,13 +216,17 @@ html_content = f"""
     .dropdown-content {{
         display: none;
         position: absolute;
-        top: 42px;
+        top: 42px; /* se mantiene como antes */
         left: 0;
+<<<<<<< refs/remotes/origin/Frontend-Streamlit:Streamlit/ejercicios/newMockup.py
         background: #1a1a1a;
+=======
+        background: #fff;
+>>>>>>> local:Streamlit/ejercicios/AgileCodeBrAI+n.py
         border: 1px solid #444;
         border-radius: 6px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        min-width: 200px;
+        min-width: 165px;
         z-index: 1000;
         overflow: hidden;
     }}
@@ -221,7 +246,29 @@ html_content = f"""
     .dropdown-content a:hover {{
         background: #333;
     }}
-    
+
+    /* Botón Enviar centrado + estados */
+    div[data-testid="stButton"] > button {{
+        display: block;
+        margin: 16px auto 0 auto !important;
+        width: 220px;
+        color: #ffffff !important;
+        border-radius: 20px;
+        border: none !important;
+        font-weight: 600;
+    }}
+
+    div[data-testid="stButton"] > button:enabled {{
+        background-color: #c00 !important;
+        color: #fff !important;
+    }}
+
+    div[data-testid="stButton"] > button:disabled {{
+        background-color: #bdbdbd !important;
+        color: #fff !important;
+        opacity: 1 !important;
+        cursor: not-allowed !important;
+    }}
     </style>
 
     <div class="tab-menu-container">
